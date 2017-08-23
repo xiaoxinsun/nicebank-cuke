@@ -10,5 +10,6 @@ public class Teller {
 
     public void withdrawFrom(Account myAccount, int dollars) {
         cashSlot.dispense(dollars);
+        myAccount.debit(new Money(dollars, 0));
     }
 }

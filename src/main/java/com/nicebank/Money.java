@@ -30,6 +30,10 @@ public class Money {
         return new Money(this.dollars + amount.dollars, this.cents + amount.cents);
     }
 
+    public Money minus(Money amount) {
+        return new Money(this.dollars - amount.dollars, this.cents - amount.cents);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -47,4 +51,13 @@ public class Money {
         result = 31 * result + cents;
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "Money{" +
+                "dollars=" + dollars +
+                ", cents=" + cents +
+                '}';
+    }
+
 }
