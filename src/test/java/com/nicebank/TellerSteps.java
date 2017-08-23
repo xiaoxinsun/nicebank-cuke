@@ -13,8 +13,7 @@ public class TellerSteps {
 
     @When("^I request \\$(\\d+)$")
     public void iRequest$(int amount) throws Throwable {
-        Teller teller = new Teller(helper.getCashSlot());
-        teller.withdrawFrom(helper.getMyAccount(), amount);
+        helper.getTeller().withdrawFrom(helper.getMyAccount(), amount);
     }
 
 }

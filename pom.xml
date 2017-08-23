@@ -12,6 +12,8 @@
         <cucumber.version>1.2.0</cucumber.version>
         <junit.version>4.11</junit.version>
         <picocontainer.version>2.15</picocontainer.version>
+        <jetty.version>9.4.0.RC3</jetty.version>
+        <selenium.version>2.41.0</selenium.version>
     </properties>
 
     <dependencies>
@@ -38,6 +40,18 @@
             <artifactId>picocontainer</artifactId>
             <version>${picocontainer.version}</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-webapp</artifactId>
+            <version>${jetty.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-server</artifactId>
+            <version>${selenium.version}</version>
         </dependency>
     </dependencies>
 
