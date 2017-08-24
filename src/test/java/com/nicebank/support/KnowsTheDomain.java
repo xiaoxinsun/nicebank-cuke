@@ -1,15 +1,17 @@
 package com.nicebank.support;
 
 import com.nicebank.Account;
-import com.nicebank.AutomatedTeller;
 import com.nicebank.CashSlot;
 import com.nicebank.Teller;
-import com.nicebank.web.AtmUserInterface;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 public class KnowsTheDomain {
     private Account myAccount;
     private CashSlot cashSlot;
     private Teller teller;
+    private EventFiringWebDriver webDriver;
 
     public Account getMyAccount() {
         if (myAccount == null) {
@@ -27,8 +29,15 @@ public class KnowsTheDomain {
 
     public Teller getTeller() {
         if (teller == null) {
-            teller = new AtmUserInterface();
+            teller = new AtmUserInterface(this);
         }
         return this.teller;
+    }
+
+    public EventFiringWebDriver getWebDriver() {
+        if (webDriver == null) {
+            webDriver = new EventFiringWebDriver(new FirefoxDriver());
+        }
+        return webDriver;
     }
 }
