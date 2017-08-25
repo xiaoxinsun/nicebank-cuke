@@ -8,14 +8,14 @@ public class Money {
     private final int dollars;
     private final int cents;
 
-//    public Money(String amount) {
-//        Pattern pattern = Pattern.compile("^([\\d]+)\\.([\\d][\\d])$");
-//        Matcher matcher = pattern.matcher(amount);
-//
-//        matcher.find();
-//        this.dollars = Integer.parseInt(matcher.group(1));
-//        this.cents = Integer.parseInt(matcher.group(2));
-//    }
+    public Money(String amount) {
+        Pattern pattern = Pattern.compile("^([\\d]+)\\.([\\d][\\d])$");
+        Matcher matcher = pattern.matcher(amount);
+
+        matcher.find();
+        this.dollars = Integer.parseInt(matcher.group(1));
+        this.cents = Integer.parseInt(matcher.group(2));
+    }
 
     public Money(int dollars, int cents) {
         this.dollars = dollars;
@@ -54,10 +54,7 @@ public class Money {
 
     @Override
     public String toString() {
-        return "Money{" +
-                "dollars=" + dollars +
-                ", cents=" + cents +
-                '}';
+        return String.format("%d.%02d", dollars, cents);
     }
 
 }

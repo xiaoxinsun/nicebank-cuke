@@ -1,19 +1,22 @@
 package com.nicebank;
 
+import com.nicebank.middleware.BalanceStore;
+import com.nicebank.middleware.TransactionQueue;
+
 public class Account {
 
-    private Money balance = new Money();
+    private TransactionQueue queue = new TransactionQueue();
 
     public void credit(Money amount) {
-        balance = balance.add(amount);
+        queue.write("+" + amount.toString());
     }
 
     public void debit(Money amount) {
-        balance = balance.minus(amount);
+        queue.write("-" + amount.toString());
     }
 
     public Money getBalance() {
-        return balance;
+        return BalanceStore.getBalance();
     }
 
 }
