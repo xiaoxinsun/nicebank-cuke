@@ -9,7 +9,6 @@ public class ResetHooks {
     @Before
     public void reset() {
         TransactionQueue.clear();
-        BalanceStore.clear();
     }
 
 }

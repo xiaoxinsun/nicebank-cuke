@@ -5,6 +5,7 @@ import com.nicebank.CashSlot;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
+import org.javalite.activejdbc.Base;
 
 public class AtmServer {
 
@@ -28,6 +29,14 @@ public class AtmServer {
 
     public void stop() throws Exception {
         server.stop();
+    }
+
+    public static void main(String args[]) {
+        Base.open(
+                "org.h2.Driver",
+                "jdbc:h2:tcp://localhost/~/bank",
+                "teller", "password"
+        );
     }
 
 }
