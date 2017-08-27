@@ -1,22 +1,22 @@
 package com.nicebank;
 
-import com.nicebank.support.KnowsTheAccount;
-import com.nicebank.support.KnowsTheTeller;
+import com.nicebank.support.AtmUserInterface;
+import com.nicebank.util.DbUtils;
 import cucumber.api.java.en.When;
 
 public class TellerSteps {
 
-    private KnowsTheTeller helper;
-    private KnowsTheAccount accountHelper;
+    private AtmUserInterface teller;
+    private Account account;
 
-    public TellerSteps(KnowsTheTeller helper, KnowsTheAccount accountHelper) {
-        this.helper = helper;
-        this.accountHelper = accountHelper;
+    public TellerSteps(AtmUserInterface teller) {
+        this.teller = teller;
+        this.account = Account.findByAccountNumber(DbUtils.DEFAULT_ACCOUNT);
     }
 
     @When("^I request \\$(\\d+)$")
     public void iRequest$(int amount) throws Throwable {
-        helper.getTeller().withdrawFrom(accountHelper.getMyAccount(), amount);
+        teller.withdrawFrom(account, amount);
     }
 
 }

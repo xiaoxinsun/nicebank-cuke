@@ -38,4 +38,8 @@ public class Account extends Model {
         saveIt();
     }
 
+    public static Account findByAccountNumber(int accountNumber) {
+        return findFirst("number = ?", accountNumber);
+    }
+
 }
