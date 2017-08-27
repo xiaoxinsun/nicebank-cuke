@@ -1,6 +1,6 @@
 package com.nicebank.hooks;
 
-import com.nicebank.support.KnowsTheDomain;
+import com.nicebank.support.MyWebDriver;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import org.openqa.selenium.OutputType;
@@ -8,21 +8,21 @@ import org.openqa.selenium.WebDriverException;
 
 public class WebDriverHooks {
 
-    private KnowsTheDomain helper;
+    private MyWebDriver webDriver;
 
-    public WebDriverHooks(KnowsTheDomain helper) {
-        this.helper = helper;
+    public WebDriverHooks(MyWebDriver webDriver) {
+        this.webDriver = webDriver;
     }
 
     @After
     public void finish(Scenario scenario) {
         try {
-            byte[] screenshot = helper.getWebDriver().getScreenshotAs(OutputType.BYTES);
+            byte[] screenshot = webDriver.getScreenshotAs(OutputType.BYTES);
             scenario.embed(screenshot, "image/png");
         } catch (WebDriverException somePlatformDontSupportScreenshots) {
             System.err.println(somePlatformDontSupportScreenshots.getMessage());
         } finally {
-            helper.getWebDriver().close();
+            webDriver.close();
         }
     }
 

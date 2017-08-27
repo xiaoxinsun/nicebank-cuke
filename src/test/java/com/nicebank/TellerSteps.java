@@ -1,19 +1,22 @@
 package com.nicebank;
 
-import com.nicebank.support.KnowsTheDomain;
+import com.nicebank.support.KnowsTheAccount;
+import com.nicebank.support.KnowsTheTeller;
 import cucumber.api.java.en.When;
 
 public class TellerSteps {
 
-    private KnowsTheDomain helper;
+    private KnowsTheTeller helper;
+    private KnowsTheAccount accountHelper;
 
-    public TellerSteps(KnowsTheDomain helper) {
+    public TellerSteps(KnowsTheTeller helper, KnowsTheAccount accountHelper) {
         this.helper = helper;
+        this.accountHelper = accountHelper;
     }
 
     @When("^I request \\$(\\d+)$")
     public void iRequest$(int amount) throws Throwable {
-        helper.getTeller().withdrawFrom(helper.getMyAccount(), amount);
+        helper.getTeller().withdrawFrom(accountHelper.getMyAccount(), amount);
     }
 
 }

@@ -1,6 +1,6 @@
 package com.nicebank;
 
-import com.nicebank.support.KnowsTheDomain;
+import com.nicebank.support.KnowsTheAccount;
 import cucumber.api.Transform;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -9,9 +9,9 @@ import static org.junit.Assert.assertEquals;
 
 public class AccountSteps {
 
-    private final KnowsTheDomain helper;
+    private final KnowsTheAccount helper;
 
-    public AccountSteps(KnowsTheDomain helper) {
+    public AccountSteps(KnowsTheAccount helper) {
         this.helper = helper;
     }
 

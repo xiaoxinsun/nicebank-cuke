@@ -1,14 +1,14 @@
 package com.nicebank;
 
-import com.nicebank.support.KnowsTheDomain;
+import com.nicebank.support.KnowsTheCashSlot;
 import cucumber.api.java.en.Then;
 import org.junit.Assert;
 
 public class CashSlotSteps {
 
-    private KnowsTheDomain helper;
+    private KnowsTheCashSlot helper;
 
-    public CashSlotSteps(KnowsTheDomain helper) {
+    public CashSlotSteps(KnowsTheCashSlot helper) {
         this.helper = helper;
     }
 
