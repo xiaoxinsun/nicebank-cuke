@@ -3,7 +3,9 @@ package com.nicebank.hooks;
 import com.nicebank.TransactionProcessor;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+import cucumber.runtime.java.guice.ScenarioScoped;
 
+@ScenarioScoped
 public class BackgroundProcessHooks {
 
     private Thread transactionProcessorThread;
