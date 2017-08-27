@@ -4,9 +4,7 @@ import com.nicebank.Account;
 import com.nicebank.middleware.TransactionQueue;
 import com.nicebank.util.DbUtils;
 import cucumber.api.java.Before;
-import cucumber.runtime.java.guice.ScenarioScoped;
 
-@ScenarioScoped
 public class ResetHooks {
 
     @Before(order = 1)

@@ -1,20 +1,16 @@
 package com.nicebank.steps;
 
 import com.nicebank.CashSlot;
-import com.nicebank.support.TestCashSlot;
 import cucumber.api.java.en.Then;
-import cucumber.runtime.java.guice.ScenarioScoped;
 import org.junit.Assert;
+import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.inject.Inject;
-
-@ScenarioScoped
 public class CashSlotSteps {
 
     private CashSlot cashSlot;
 
-    @Inject
-    public CashSlotSteps(TestCashSlot cashSlot) {
+    @Autowired
+    public CashSlotSteps(CashSlot cashSlot) {
         this.cashSlot = cashSlot;
     }
 

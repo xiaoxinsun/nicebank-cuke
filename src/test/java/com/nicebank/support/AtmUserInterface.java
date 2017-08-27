@@ -3,19 +3,20 @@ package com.nicebank.support;
 import com.nicebank.Account;
 import com.nicebank.Teller;
 import com.nicebank.hooks.ServerHooks;
-import cucumber.runtime.java.guice.ScenarioScoped;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
-import javax.inject.Inject;
-
-@ScenarioScoped
+@Component
+@Scope("cucumber-glue")
 public class AtmUserInterface implements Teller {
 
     private EventFiringWebDriver webDriver;
 
-    @Inject
-    public AtmUserInterface(MyWebDriver webDriver) {
+    @Autowired
+    public AtmUserInterface(EventFiringWebDriver webDriver) {
         this.webDriver = webDriver;
     }
 

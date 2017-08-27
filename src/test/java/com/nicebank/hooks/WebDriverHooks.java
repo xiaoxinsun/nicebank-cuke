@@ -1,21 +1,18 @@
 package com.nicebank.hooks;
 
-import com.nicebank.support.MyWebDriver;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
-import cucumber.runtime.java.guice.ScenarioScoped;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
+import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.inject.Inject;
-
-@ScenarioScoped
 public class WebDriverHooks {
 
-    private MyWebDriver webDriver;
+    private EventFiringWebDriver webDriver;
 
-    @Inject
-    public WebDriverHooks(MyWebDriver webDriver) {
+    @Autowired
+    public WebDriverHooks(EventFiringWebDriver webDriver) {
         this.webDriver = webDriver;
     }
 
