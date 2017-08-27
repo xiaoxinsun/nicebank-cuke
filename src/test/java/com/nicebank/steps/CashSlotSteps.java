@@ -1,5 +1,6 @@
-package com.nicebank;
+package com.nicebank.steps;
 
+import com.nicebank.CashSlot;
 import cucumber.api.java.en.Then;
 import org.junit.Assert;
 

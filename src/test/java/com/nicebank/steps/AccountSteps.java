@@ -1,5 +1,7 @@
-package com.nicebank;
+package com.nicebank.steps;
 
+import com.nicebank.Account;
+import com.nicebank.Money;
 import com.nicebank.util.DbUtils;
 import cucumber.api.Transform;
 import cucumber.api.java.en.And;

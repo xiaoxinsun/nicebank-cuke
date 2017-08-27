@@ -1,5 +1,6 @@
-package com.nicebank;
+package com.nicebank.steps;
 
+import com.nicebank.Account;
 import com.nicebank.support.AtmUserInterface;
 import com.nicebank.util.DbUtils;
 import cucumber.api.java.en.When;
