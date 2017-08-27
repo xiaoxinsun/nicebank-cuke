@@ -1,5 +1,6 @@
-package com.nicebank;
+package com.nicebank.steps;
 
+import com.nicebank.Money;
 import cucumber.api.Transformer;
 
 public class MoneyConverter extends Transformer<Money> {
