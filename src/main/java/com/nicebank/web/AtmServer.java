@@ -2,6 +2,7 @@ package com.nicebank.web;
 
 import com.nicebank.Account;
 import com.nicebank.CashSlot;
+import com.nicebank.util.DbUtils;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
@@ -32,11 +33,7 @@ public class AtmServer {
     }
 
     public static void main(String args[]) {
-        Base.open(
-                "org.h2.Driver",
-                "jdbc:h2:tcp://localhost/~/bank",
-                "teller", "password"
-        );
+        DbUtils.connectToDB();
     }
 
 }

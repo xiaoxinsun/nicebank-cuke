@@ -1,19 +1,27 @@
 package com.nicebank;
 
-import com.nicebank.middleware.BalanceStore;
 import com.nicebank.middleware.TransactionQueue;
+import com.nicebank.util.DbUtils;
 import org.javalite.activejdbc.Model;
 
 public class Account extends Model {
 
     private TransactionQueue queue = new TransactionQueue();
 
+    public Account() {
+    }
+
+    public Account(int number) {
+        setInteger("number", number);
+        setString("balance", "0.00");
+    }
+
     public void credit(Money amount) {
-        queue.write("+" + amount.toString());
+        queue.write(String.format("%s%s,%s", "+", amount.toString(), DbUtils.DEFAULT_ACCOUNT));
     }
 
     public void debit(Money amount) {
-        queue.write("-" + amount.toString());
+        queue.write(String.format("%s%s,%s", "-", amount.toString(), DbUtils.DEFAULT_ACCOUNT));
     }
 
     public int getNumber() {
@@ -21,6 +29,7 @@ public class Account extends Model {
     }
 
     public Money getBalance() {
+        refresh();
         return new Money(getString("balance"));
     }
 

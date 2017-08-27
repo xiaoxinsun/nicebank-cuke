@@ -3,6 +3,8 @@ package com.nicebank.support;
 import com.nicebank.Account;
 import com.nicebank.CashSlot;
 import com.nicebank.Teller;
+import com.nicebank.util.DbUtils;
+import org.javalite.activejdbc.Base;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
@@ -13,9 +15,15 @@ public class KnowsTheDomain {
     private Teller teller;
     private EventFiringWebDriver webDriver;
 
+    public KnowsTheDomain() {
+        DbUtils.connectToDB();
+        Account.deleteAll();
+    }
+
     public Account getMyAccount() {
         if (myAccount == null) {
-            myAccount = new Account();
+            myAccount = new Account(DbUtils.DEFAULT_ACCOUNT);
+            myAccount.saveIt();
         }
         return myAccount;
     }
