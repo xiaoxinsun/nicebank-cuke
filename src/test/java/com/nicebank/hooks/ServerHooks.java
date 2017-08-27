@@ -2,16 +2,12 @@ package com.nicebank.hooks;
 
 import com.nicebank.Account;
 import com.nicebank.CashSlot;
-import com.nicebank.support.TestCashSlot;
 import com.nicebank.util.DbUtils;
 import com.nicebank.web.AtmServer;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
-import cucumber.runtime.java.guice.ScenarioScoped;
+import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.inject.Inject;
-
-@ScenarioScoped
 public class ServerHooks {
 
     public static final int PORT = 8887;
@@ -19,8 +15,8 @@ public class ServerHooks {
     private AtmServer server;
     private CashSlot cashSlot;
 
-    @Inject
-    public ServerHooks(TestCashSlot cashSlot) {
+    @Autowired
+    public ServerHooks(CashSlot cashSlot) {
         this.cashSlot = cashSlot;
     }
 
